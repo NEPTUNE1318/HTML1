@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 버튼 이미지를 수직으로 정렬하기 위한 스타일 */
+        input[type="image"] {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>입력 양식 사용</h1>
+    <h2>스핀 박스, 슬라이드 막대</h2>
+    <ul>
+        <li>
+            <label><input type="checkbox" value="s_3">선물용 3kg</label>
+            <input type="number" min="0" max="5" value="0">개 (최대 5개)
+        </li>
+        <li>
+            <label><input type="checkbox" value="s_5">선물용 5kg</label>
+            <input type="number" min="0" max="3" value="0">개 (최대 3개)
+        </li>
+        <li>
+            <label><input type="checkbox" value="f_3">가정용 3kg</label>
+            <input type="range" min="0" max="5" value="0">개 (최대 5개)
+        </li>
+        <li>
+            <label><input type="checkbox" value="f_5">가정용 5kg</label>
+            <input type="range" min="0" max="3" value="0">개 (최대 3개)
+        </li>
+    </ul>
+
+    <h2>날짜 지정하기</h2>
+    <input type="date">
+    <input type="month">
+    <input type="week">
+    
+    <h2>시간 지정하기</h2>
+    <input type="time">
+    <input type="datetime-local">
+    <h3>날짜 범위 제한 지정</h3>
+    <input type="date" min="2022-03-01" max="2022-03-20">
+
+    <h3>간단한 폼 만들기</h3>
+    <fieldset>
+        <legend>배송 정보</legend>
+        <ul>
+            <li>
+                <label for="user-name">이름</label>
+                <input type="text" id="user-name" autofocus>
+            </li>
+            <li>
+                <label for="addr">배송 주소</label>
+                <input type="text" id="addr">
+            </li>
+            <li>
+                <label for="amin">이메일</label>
+                <input type="text" id="mail">
+            </li>
+            <li>
+                <label for="phone">연락처</label>
+                <input type="text" id="phone" placeholder="하이픈 빼고 입력해 주세요.(01012345678)">
+            </li>
+        </ul>
+    </fieldset>
+    <h3>전송, 리셋 버튼 추가</h3>
+    <div>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="취소하기">
+    </div>
+    
+    <h3>이미지 버튼 추가</h3>
+    <fieldset>
+        <label>아이디: <input type="text" id="user-id" size="10"></label>
+        <label>비밀번호: <input type="password" id="user-pw" size="10"></label>
+        <input type="image" src="../image/login.png" alt="로그인">
+    </fieldset>
+
+    <h3>버튼 자바스크립트 실행</h3>
+    <form>
+        <input type="button" value="공지 창 열기" onclick="window.open('05/notice.html')">
+    </form>
+
+    <h3>파일 첨부 버튼 추가하기</h3>
+    <form>
+        <fieldset>
+            <legend>반품 정보</legend>
+            <p>만일 수령한 상품에 문제가 있다면 즉시 <b>반품 신청</b>해 주세요.</p>
+            <p>반품 신청시 상품의 상태를 사진으로 첨부해 주세요.</p>
+            <hr>
+            <input type="file">    
+        </fieldset>
+        <div>
+</body>
+</html>
