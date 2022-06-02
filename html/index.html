@@ -3,14 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
     <style>
         /* 버튼 이미지를 수직으로 정렬하기 위한 스타일 */
         input[type="image"] {
             vertical-align: middle;
         }
+        hr {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
+    <!-- 순서가 있는 목록 : <ol>, <li> 태그 -->
+
+    <!-- 
+        <ol> 태그의 속성값
+        
+        tpye="1" : 숫자(기본값)
+        type="a" : 영문 소문자
+        type="A" : 영문 대문자
+        type="i" : 로마 숫자 소문자
+        tyle="i" : 로마 숫자 대문자
+    -->
+    <h1>순서 있는 목록</h1>
+    <h2>레드향 샐러드 레시피</h2>
+    <p><b>재료:</b> 레드향 1개, 아보카도 1개, 토마토 1개, 샐러드 채소 30g</p>
+    <p><b>드레싱:</b> 올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간</p>
+    <h4>재료 준비</h4>
+    <ol type="a">
+        <li>샐러드 채소를 씻어 물기를 제거한 후 먹기 좋게 썰어서 준비합니다.</li>
+        <li>레드향과 아보카도, 토마토도 먹기 좋은 크기로 썰어 둡니다.</li>
+    </ol>
+    <h4>드레싱 준비</h4>
+    <ol type="a" start="3">
+        <li>드레싱 재료를 믹서에 한꺼번에 넣고 갈아 줍니다.</li>
+    </ol>
+    <h4>샐러드 완성</h4>
+    <ol type="a" start="4">
+        <li>볼에 샐러드 채소와 레드향, 아보카도, 토마토를 넣고 드레싱을 뿌리면 끝!</li>
+    </ol>
+
+    <!-- 순서 없는 목록 : <ul>, <li> 태그 -->
+    <br>
+    <h1>순서 없는 목록</h1>
+    <h2>레드향 샐러드 레시피</h2>
+    <p><b>재료:</b> 레드향 1개, 아보카도 1개, 토마토 1개, 샐러드 채소 30g</p>
+    <p><b>드레싱:</b> 올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간</p>
+    <ul>
+        <li>샐러드 채소를 씻어 물기를 제거한 후 먹기 좋게 썰어서 준비합니다.</li>
+        <li>레드향과 아보카도, 토마토도 먹기 좋은 크기로 썰어 둡니다.</li>
+        <li>드레싱 재료를 믹서에 한꺼번에 넣고 갈아 줍니다.</li>
+        <li>볼에 샐러드 채소와 레드향, 아보카도, 토마토를 넣고 드레싱을 뿌리면 끝!</li>
+    </ul>
+
+    <!-- 
+        설명 목록 : <dl>, <dt>, <dd> 태그 
+
+        기본형 
+        <dl>
+            <dt>이름</dt>
+            <dd>값</dd>
+        </dl>
+    -->
+    <br>
+    <h1>설명 목록</h1>
+    <h2>상품 구성</h2>
+    <dl>
+        <dt>선물용 3kg</dt>
+        <dd>소과 13~16과</dd>
+        <dd>중과 10~12과</dd>
+    </dl>
+    <dl>
+        <dt>선물용 5kg</dt>
+        <dd>중과 15~19과</dd>
+    </dl>
+
+    <br>
     <h1>입력 양식 사용</h1>
     <h2>스핀 박스, 슬라이드 막대</h2>
     <ul>
@@ -32,6 +101,24 @@
         </li>
     </ul>
 
+    <br>
+    <h1>드롭다운 목록</h1>
+    <label for="prod1">상품 선택</label>
+    <select id="prod">
+        <option value="special_3" selected>선물용 3kg</option>
+        <option value="special_5">선물용 5kg</option>
+        <option value="family_3">가정용 3kg</option>
+        <option value="family_5">가정용 5kg</option>
+    </select>
+
+    <h1>데이터 목록</h1>
+    <label for="prod2">포장 여부</label>
+    <input type="text" id="prod2" list="pack">
+    <datalist id="pack">
+        <option value="package">선물 포장</option>
+        <option value="no_package">포장 안 함</option>
+    </datalist>
+
     <h2>날짜 지정하기</h2>
     <input type="date">
     <input type="month">
@@ -44,27 +131,46 @@
     <input type="date" min="2022-03-01" max="2022-03-20">
 
     <h3>간단한 폼 만들기</h3>
-    <fieldset>
-        <legend>배송 정보</legend>
-        <ul>
-            <li>
-                <label for="user-name">이름</label>
-                <input type="text" id="user-name" autofocus>
-            </li>
-            <li>
-                <label for="addr">배송 주소</label>
-                <input type="text" id="addr">
-            </li>
-            <li>
-                <label for="amin">이메일</label>
-                <input type="text" id="mail">
-            </li>
-            <li>
-                <label for="phone">연락처</label>
-                <input type="text" id="phone" placeholder="하이픈 빼고 입력해 주세요.(01012345678)">
-            </li>
-        </ul>
-    </fieldset>
+    <form>
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul id="shipping">
+                <li>
+                    <label for="prod">주문 상품</label>
+                    <input type="text" id="prod" value="상품용 3KG" readonly>
+                </li>
+                <li>
+                    <label for="user-name">이름</label>
+                    <input type="text" id="user-name" autofocus required>
+                </li>
+                <li>
+                    <label for="addr">배송 주소</label>
+                    <input type="text" id="addr" required>
+                </li>
+                <li>
+                    <label for="mail">이메일</label>
+                    <input type="email" id="mail">
+                </li>
+                <li>
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" placeholder="하이픈 빼고 입력해 주세요.(01012345678)" required>
+                </li>
+                <li>
+                    <label for="d-day">배송 지정</label>
+                    <input type="date" id="d-day"><small>(주문일로부터 최소 3일 이후)</small>
+                </li>
+                <li>
+                    <label for="memo">메모</label>
+                    <textarea id="memo" cols="40" rows="4"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <div>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="취소하기">
+        </div>
+    </form>
+    
     <h3>전송, 리셋 버튼 추가</h3>
     <div>
         <input type="submit" value="주문하기">
@@ -78,9 +184,60 @@
         <input type="image" src="../image/login.png" alt="로그인">
     </fieldset>
 
+    <div id="container">
+        <h1>회원 가입을 환영합니다</h1>
+        <form>
+            <fieldset>
+                <legend>사용자 정보</legend>
+                <ul>
+                    <li>
+                        <label for="uid">아이디</label>
+                        <input type="text" id="uid" autofocus placeholder="4자 ~ 10자 사이, 공백없이">
+                    </li>
+                    <li>
+                        <label for="umail">이메일</label>
+                        <input type="email" id="umail" required>
+                    </li>
+                    <li>
+                        <label for="pwd1">비밀번호</label>
+                        <input type="password" id="pwd1" placeholder="문자와 숫자, 특수 기호 포함", required>
+                    </li>
+                    <li>
+                        <label for="pwd2">비밀번호 확인</label>
+                        <input type="password" id="pwd2" required>
+                    </li>
+                    <li>
+                        <label for="path">가입 경로</label>
+                        <select id="path">
+                            <option value="blog">블로그</option>
+                            <option value="search">검색</option>
+                            <option value="sns">SNS</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="memo">메모</label>
+                        <textarea cols="40" rows="4" placeholder="남길 말씀이 있다면 여기에"></textarea>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>이벤트와 새로운 소식</legend>
+                <input type="radio" name="mailing" id="mailing_y">
+                <label for="mailing_y">메일 수신</label>
+                <input type="radio" name="mailing" id="mailing_n" checked>
+                <label for="mailing_n">메일 수신 안 함</label>
+            </fieldset>
+            <div id="buttons">
+                <input type="submit" value="가입하기">
+                <input type="reset" value="취소">
+            </div>
+        </form>
+    </div>
+
     <h3>버튼 자바스크립트 실행</h3>
     <form>
-        <input type="button" value="공지 창 열기" onclick="window.open('05/notice.html')">
+        <input type="button" value="공지 창 열기" onclick="window.open('notice.html')">
     </form>
 
     <h3>파일 첨부 버튼 추가하기</h3>
